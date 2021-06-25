@@ -10,9 +10,9 @@ export default {
 const Template: Story<SwitchProps> = (args) => <Switch {...args} />;
 
 /**
- * Primary Button style
+ * default style
  */
-export const PrimaryNormal = Template.bind({});
-PrimaryNormal.args = {
-    type: 'primary',
+export const Default = Template.bind({});
+Default.args = {
+    defaultChecked: false,
 };

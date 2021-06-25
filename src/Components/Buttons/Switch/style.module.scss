@@ -18,14 +18,17 @@ $duration: 0.3s;
     position: relative;
     display: inline-block;
     box-sizing: border-box;
-    width: 4.4rem;
+    min-width: 4.4rem;
     height: 2.2rem;
     line-height: 2rem;
     padding: 0;
     vertical-align: middle;
     border-radius: 2rem 2rem;
     border: 0.1rem solid $gray_1;
+    background: $gray_1;
     cursor: pointer;
+    outline: none;
+    transition: all $duration cubic-bezier(0.35, 0, 0.25, 1);
     &-inner {
         color: $background;
         font-size: 1.2rem;
@@ -51,15 +54,52 @@ $duration: 0.3s;
     }
     &:hover::after {
         transform: scale(1.1);
+        animation-name: rcSwitchOn;
     }
     &-checked {
-        border: 0.1rem solid $primary;
-        background-color: $primary;
+        border: 0.1rem solid $secondary;
+        background-color: $secondary;
         .#{$switchPrefixCls}-inner {
             left: 0.6rem;
         }
         &::after {
             left: 2.2rem;
         }
+    }
+    &-disabled {
+        cursor: no-drop;
+        background: rgba($color: $secondary, $alpha: 0.4);
+        border-color: $gray_1;
+
+        &:after {
+            animation-name: none;
+            cursor: no-drop;
+        }
+
+        &:hover:after {
+            transform: scale(1);
+            animation-name: none;
+        }
+    }
+}
+
+@keyframes rcSwitchOn {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.25);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes rcSwitchOff {
+    0% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
     }
 }

@@ -1,0 +1,41 @@
+/**
+* @file 
+* @date 2021-06-25
+* @author zhoubin
+* @lastModify zhoubin 2021-06-25
+*/
+
+@import '../../../Constant/color.scss';
+@import '../../../Constant/font.scss';
+
+$buttonPrefixCls: chestnut-button;
+
+.#{$buttonPrefixCls} {
+    padding: 0.4rem 1.5rem;
+    white-space: nowrap;
+    font-size: 1.4rem;
+    line-height: 1.5715;
+    color: rgba($color: $type, $alpha: 0.85);
+    border: 0.1rem solid transparent;
+    border-radius: 0.4rem;
+    box-shadow: 0 0.2rem 0 rgba($color: $type, $alpha: 0.02);
+    background: $background;
+    border-color: $gray_2;
+    outline: none;
+    cursor: pointer;
+    user-select: none;
+    &-primary {
+        color: $background;
+        background: $secondary_variant;
+        &:hover {
+            background: rgba($color: $secondary_variant, $alpha: 0.8);
+        }
+    }
+    &-danger {
+        color: $background;
+        background: $error;
+        &:hover {
+            background: rgba($color: $error, $alpha: 0.8);
+        }
+    }
+}

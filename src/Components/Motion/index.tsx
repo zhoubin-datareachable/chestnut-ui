@@ -36,10 +36,6 @@ export const Button: React.FC<ButtonProps> = ({
     /************* This section will include this component general function *************/
     const buttonClassName = ClassName('chestnut-button', { [type]: true }, style);
     /* <------------------------------------ **** FUNCTION END **** ------------------------------------ */
-    return (
-        <button className={buttonClassName} onClick={onClick}>
-            <span>{children}</span>
-        </button>
-    );
+    return <></>;
 };
 /* <------------------------------------ **** FUNCTION COMPONENT END **** ------------------------------------ */

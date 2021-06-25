@@ -9,7 +9,7 @@
 import React from 'react';
 import style from './style.module.scss';
 
-import ClassName from '../../../Utils/ClassName';
+import ClassName from '../../../../Utils/ClassName';
 /* <------------------------------------ **** DEPENDENCE IMPORT END **** ------------------------------------ */
 
 /* <------------------------------------ **** INTERFACE START **** ------------------------------------ */

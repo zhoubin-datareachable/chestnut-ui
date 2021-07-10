@@ -1,0 +1,144 @@
+/**
+* @file 
+* @date 2021-06-25
+* @author zhoubin
+* @lastModify zhoubin 2021-06-25
+*/
+
+@import '../../../Constant/color.scss';
+@import '../../../Constant/font.scss';
+
+$checkboxPrefixCls: chestnut-checkbox;
+$checkboxInnerPrefixCls: #{$checkboxPrefixCls}-inner;
+
+.#{$checkboxPrefixCls} {
+    white-space: nowrap;
+    cursor: pointer;
+    outline: none;
+    display: inline-block;
+    position: relative;
+    line-height: 1;
+    vertical-align: middle;
+    &:hover .#{$checkboxInnerPrefixCls} {
+        border-color: #3dbcf6;
+    }
+    &-input {
+        position: absolute;
+        left: 0;
+        z-index: 9999;
+        opacity: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        cursor: pointer;
+    }
+    &-inner {
+        position: relative;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: inline-block;
+        width: 1.4rem;
+        height: 1.4rem;
+        border: 0.1rem solid #d9d9d9;
+        background-color: #fff;
+        &::after {
+            transform: rotate(45deg);
+            position: absolute;
+            left: 0.4rem;
+            top: 0.1rem;
+            width: 0.5rem;
+            height: 0.8rem;
+            border: 0.2rem solid #fff;
+            border-top: 0;
+            border-left: 0;
+            content: '';
+            animation-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            animation-duration: 0.3s;
+            animation-name: amCheckboxOut;
+        }
+    }
+}
+
+.#{$checkboxPrefixCls}-checked {
+    &:hover .#{$checkboxInnerPrefixCls} {
+        border-color: #3dbcf6;
+    }
+    .#{$checkboxInnerPrefixCls} {
+        border-color: #3dbcf6;
+        background-color: #3dbcf6;
+        &::after {
+            transform: rotate(45deg);
+            position: absolute;
+            left: 0.4rem;
+            top: 0.1rem;
+            width: 0.4rem;
+            height: 0.8rem;
+            border: 0.2rem solid #fff;
+            border-top: 0;
+            border-left: 0;
+            content: '';
+        }
+    }
+}
+
+.#{$checkboxPrefixCls}-disabled {
+    &.#{$checkboxPrefixCls}-checked {
+        &:hover {
+            .#{$checkboxInnerPrefixCls} {
+                border-color: #d9d9d9;
+            }
+        }
+
+        .#{$checkboxInnerPrefixCls} {
+            background-color: #f3f3f3;
+            border-color: #d9d9d9;
+
+            &:after {
+                animation-name: none;
+                border-color: #cccccc;
+            }
+        }
+    }
+
+    &:hover {
+        .#{$checkboxInnerPrefixCls} {
+            border-color: #d9d9d9;
+        }
+    }
+
+    .#{$checkboxInnerPrefixCls} {
+        border-color: #d9d9d9;
+        background-color: #f3f3f3;
+        &:after {
+            animation-name: none;
+            border-color: #f3f3f3;
+        }
+    }
+
+    .#{$checkboxInnerPrefixCls}-input {
+        cursor: default;
+    }
+}
+
+@keyframes amCheckboxIn {
+    0% {
+        opacity: 0;
+        transform-origin: 50% 50%;
+        transform: scale(0, 0) rotate(45deg);
+    }
+    100% {
+        opacity: 1;
+        transform-origin: 50% 50%;
+        transform: scale(1, 1) rotate(45deg);
+    }
+}
+
+@keyframes amCheckboxOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

@@ -1,41 +1,40 @@
 /**
  * @file
- * @date 2020-09-04
- * @author Mark
- * @lastModify Mark 2020-09-04
+ * @date 2021-07-10
+ * @author zhoubin
+ * @lastModify zhoubin 2021-07-10
  */
 /* <------------------------------------ **** DEPENDENCE IMPORT START **** ------------------------------------ */
 /** This section will include all the necessary dependence for this tsx file */
 import React from 'react';
 import style from './style.module.scss';
-
-import ClassName from '../../../Utils/ClassName';
 /* <------------------------------------ **** DEPENDENCE IMPORT END **** ------------------------------------ */
-
 /* <------------------------------------ **** INTERFACE START **** ------------------------------------ */
 /** This section will include all the interface for this tsx file */
-
-type ButtonType = 'primary' | 'secondary' | 'danger' | 'default';
-export interface ButtonProps {
-    /** 按钮类型 */
-    type?: ButtonType;
-    /** 内容 */
-    children?: React.ReactNode;
-    /** 按钮点击时的回调 */
-    onClick?: React.MouseEventHandler;
+export interface PaginationProps {
+    type: string;
 }
 /* <------------------------------------ **** INTERFACE END **** ------------------------------------ */
-
 /* <------------------------------------ **** FUNCTION COMPONENT START **** ------------------------------------ */
-export const Button: React.FC<ButtonProps> = ({
-    type = 'default',
-    onClick,
-    children,
-}: ButtonProps) => {
+export const Pagination: React.FC<PaginationProps> = (): JSX.Element => {
+    /* <------------------------------------ **** STATE START **** ------------------------------------ */
+    /************* This section will include this component HOOK function *************/
+    /* <------------------------------------ **** STATE END **** ------------------------------------ */
+    /* <------------------------------------ **** PARAMETER START **** ------------------------------------ */
+    /************* This section will include this component parameter *************/
+    /* <------------------------------------ **** PARAMETER END **** ------------------------------------ */
     /* <------------------------------------ **** FUNCTION START **** ------------------------------------ */
     /************* This section will include this component general function *************/
-    const buttonClassName = ClassName('chestnut-button', { [type]: true }, style);
     /* <------------------------------------ **** FUNCTION END **** ------------------------------------ */
-    return <></>;
+    return (
+        <ul className={style['chestnut-pagination']}>
+            <li className={style['chestnut-pagination-prev']}>
+                <button>z</button>
+            </li>
+            <li className={style['chestnut-pagination-next']}>
+                <button>y</button>
+            </li>
+        </ul>
+    );
 };
 /* <------------------------------------ **** FUNCTION COMPONENT END **** ------------------------------------ */
